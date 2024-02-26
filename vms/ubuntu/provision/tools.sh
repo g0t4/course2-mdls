@@ -13,7 +13,6 @@ sudo apt install -y \
   iproute2 procps psmisc \
   silversearcher-ag tree \
   util-linux vim lsof
-  # TODO util-linux-user for chsh?
 
 # ensure install for vagrant user!
 sudo -u vagrant pipx install oscclip
