@@ -12,3 +12,5 @@ sudo usermod -aG docker vagrant
 
 sudo systemctl enable docker.service containerd.service
 sudo systemctl start docker.service containerd.service
+
+

@@ -21,17 +21,6 @@ abbr cat bat
 
 
 
-# TODO how do I wanna present this? should I wait to cover in the course and/or add this into final config.fish?
-if not test -f ~/.config/fish/completions/docker.fish
-    if not command -q docker
-        echo "[WARN]: docker not found, cannot generate fish completions"
-    else
-        echo "[INFO]: generating docker completions for fish shell..."
-        docker completion fish >~/.config/fish/completions/docker.fish
-    end
-end
-
-
 
 # *** minimal prompt (no exit code, no git status, no username)
 function fish_prompt
