@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
   #   arm (arm64) CPU (mac): parallels
 
   config.vm.box = RbConfig::CONFIG["host_cpu"] == "arm64" ? "wesdemos/centos9s-arm" : "generic/centos9s"
+  # note: host_cpu = "x64" for intel cpus
   #
   # config.vm.box = "wesdemos/centos9s-arm"
   # config.vm.box_version = "1.1.1"
