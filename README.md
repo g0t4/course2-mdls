@@ -1,14 +1,5 @@
 ## 2nd Edition - Managing Docker on Linux Servers
 
-## Recommended linux lab environments
-
-- Windows (amd64)
-  - VirtualBox
-  - Hyper-V
-  - WSL Ubuntu distro
-- macOS (amd64): VirtualBox
-- macOS (arm64): parallels/vmware
-
 ## Links
 
 - [Docker Engine](https://docs.docker.com/engine)
