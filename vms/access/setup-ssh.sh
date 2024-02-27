@@ -14,28 +14,29 @@
 #        ensure ~/.ssh/config has line: Include config.d/vagrants/*
 #      ssh ubuntu
 
-# FYI manually ensure line exists:
-# echo "Include config.d/vagrants/*" >> ~/.ssh/config
+# directory to store vagrant related ssh config
+mkdir -p ~/.ssh/config.d/vagrants
 
-ssh_vagrants="$HOME/.ssh/config.d/vagrants"
-mkdir -p $ssh_vagrants
+# add to default SSH config
+# echo "Include config.d/vagrants/*" >> ~/.ssh/config
 
 echo "generating ssh config... be patient, this takes 5-10 seconds"
 
 # ssh ubuntu
 ( 
   cd ../ubuntu
-  vagrant ssh-config --host ubuntu >$ssh_vagrants/ubuntu
+  # FYI if VM isn't created, this generates an empty file, so no harm
+  vagrant ssh-config --host ubuntu >~/.ssh/config.d/vagrants/ubuntu
 )
 
 # ssh centos
 ( 
   cd ../centos
-  vagrant ssh-config --host centos >$ssh_vagrants/centos
+  vagrant ssh-config --host centos >~/.ssh/config.d/vagrants/centos
 )
 
 # ssh debian
 ( 
   cd ../debian
-  vagrant ssh-config --host debian >$ssh_vagrants/debian
+  vagrant ssh-config --host debian >~/.ssh/config.d/vagrants/debian
 )
