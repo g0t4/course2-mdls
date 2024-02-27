@@ -13,12 +13,10 @@ Vagrant.configure("2") do |config|
   # config.vm.box = "wesdemos/centos9s-arm"
   # config.vm.box_version = "1.1.1"
   #   arm64: parallels
-  #     recommended for arm macs
   #   https://app.vagrantup.com/wesdemos/boxes/centos9s-arm
   #
   # config.vm.box = "generic/centos9s"
   #   amd64: parallels/vmware/virtualbox/hyperv/libvirt/qemu
-  #     recommended for intel cpus
   #   https://app.vagrantup.com/generic/boxes/centos9s
   #
   # config.vm.box = "bento/centos-stream-9"
