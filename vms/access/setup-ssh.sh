@@ -10,6 +10,8 @@
 ssh_vagrants=~/.ssh/config.d/vagrants
 mkdir -p $ssh_vagrants
 
+echo "generating ssh config... be patient, this takes 5-10 seconds"
+
 # ssh ubuntu
 ( 
   cd ../ubuntu
