@@ -216,7 +216,7 @@ function kill_whole_line_and_copy
     commandline -b | tr -d '\n' | osc-copy
     commandline -f kill-whole-line
 end
-bind \ek kill_whole_line_and_copy # esc+k yanks line to clipboard (via oscclip osc 52 over SSH)
+bind \ek kill_whole_line_and_copy # esc+k yanks line to clipboard (via oscclip osc 52 over SSH) # confirmed works on: iterm2, windows terminal
 
 # ctrl+c clear command line instead of cancel-commandline
 bind \cc 'commandline -r ""'
