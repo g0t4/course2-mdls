@@ -17,8 +17,12 @@
 # directory to store vagrant related ssh config
 mkdir -p ~/.ssh/config.d/vagrants
 
-# add to default SSH config
-# echo "Include config.d/vagrants/*" >> ~/.ssh/config
+# warn if Include isn't in ~/.ssh/config:
+if ! grep -q 'Include config.d/vagrants/*' ~/.ssh/config; then
+  echo "FYI, manually run:"
+  # includes vagrants dir in default ssh config:
+  echo "  echo 'Include config.d/vagrants/*' >> ~/.ssh/config"
+fi
 
 echo "generating ssh config... be patient, this takes 5-10 seconds"
 
