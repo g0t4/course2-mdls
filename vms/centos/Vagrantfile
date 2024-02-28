@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   # note: host_cpu = "x64" for intel cpus
   #
   # config.vm.box = "wesdemos/centos9s-arm"
-  # config.vm.box_version = "1.1.1"
+  # config.vm.box_version = "1.1.3"
   #   arm64: parallels
   #   https://app.vagrantup.com/wesdemos/boxes/centos9s-arm
   #
