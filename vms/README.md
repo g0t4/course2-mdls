@@ -7,6 +7,25 @@
 - macOS (amd64): VirtualBox
 - macOS (arm64): parallels/vmware
 
+## vagrant tips
+
+```shell
+# creating a VM is automated & fast!
+# and, using snapshots (too) is even faster!
+#
+# i.e.
+vagrant up
+vagrant snapshot save before_foo # or, 'after_vagrant_up'
+vagrant ssh # 🧪 ... install/config foo
+vagrant snapshot save after_foo # 😷 just in case
+vagrant snapshot list
+# ... wanna redo foo?
+vagrant snapshot restore before_foo
+vagrant ssh # foo is gone 🎉
+vagrant snapshot delete after_foo # good to go?
+# ...
+```
+
 ## (optional) disable Parallels modifying /etc/hosts
 
 - Because the course VMs use host-only NICs, parallels adds entires to `/etc/hosts`
