@@ -36,6 +36,8 @@ set -U fish_greeting "" # no welcome message
 # *** systemctl ***
 abbr sc 'sudo systemctl'
 abbr scs 'sudo systemctl status'
+abbr scsd 'sudo systemctl status docker'
+abbr scsc 'sudo systemctl status containerd'
 abbr scstart 'sudo systemctl start'
 abbr scstop 'sudo systemctl stop'
 abbr screstart 'sudo systemctl restart'
