@@ -4,6 +4,9 @@ echo
 echo "before 2-containers:"
 docker container ls
 echo
+echo "/etc/docker/daemon.json:"
+sudo cat /etc/docker/daemon.json
+echo
 
 # emphermal container:
 docker container run -d -p "10000:10000" --name=web envoyproxy/envoy:dev
