@@ -2,7 +2,7 @@
 
 echo
 echo "before 2-containers:"
-docker container ls
+docker container ps -a
 
 # emphermal container:
 docker container run -d -p "10000:10000" --name=web envoyproxy/envoy:dev
@@ -12,5 +12,5 @@ docker container run -d -p "10002:10000" --name=web-restarts --restart=always en
 
 echo
 echo "after 2-containers:"
-docker container ls
+docker container ps -a
 echo
