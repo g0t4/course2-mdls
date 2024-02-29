@@ -4,6 +4,8 @@
 # - no longer have to `cd ubuntu; vagrant ssh` (slow)
 # - instead `ssh ubuntu` anywhere (fast, especially w/ persistent connections)
 
+# FYI if SSH stops working (hanging), i.e. after host reboot, your VM might have a new IP address assigned, just re-run this script to update the ssh config.
+
 # understand what is going on:
 #   cd ubuntu; vagrant ssh
 #   now,

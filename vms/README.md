@@ -63,3 +63,20 @@ sudo launchctl start com.parallels.desktop.launchdaemon
 vagrant reload
 
 ```
+
+### consistent SSH IP/PORT to a given VM ###
+
+```Vagrantfile
+
+# Attempt to force a constant IP/port for SSH
+#   by assigning a static port mapped to the host, use localhost to access
+#   works on initial vagrant up
+#     works in vagrant ssh-config output
+# but, "fixing this" can cause unforeseen issues, so don't "fix this"
+#   b/c changing IP is relatively rare, i.e. on reboot w/ parallels VMs
+#   and I'm not certain this working isn't by accident (would have to dig into vagrant code to see if its intended/guaranteed behavior that will be there in the future)
+config.vm.network 'forwarded_port', host: "8230", guest: "22" # forward port for ssh, so vagrant ssh-config doesn't change (i.e. across host reboot)
+config.ssh.host = "127.0.0.1"
+config.ssh.port = "8230" # secondary issue => collision with host ports, plus the config is not straightforward
+
+```
