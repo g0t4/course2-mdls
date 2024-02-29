@@ -45,8 +45,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", name: "1-install", path: "./scripts/1-install.sh"
   config.vm.provision "shell", name: "2-containers", path: "./scripts/2-containers.sh"
-  config.vm.provision "shell", name: "3-newer", path: "./scripts/3-newer.sh", run: "never"
-  config.vm.provision "shell", name: "4-latest", path: "./scripts/4-latest.sh", run: "never"
+  config.vm.provision "shell", name: "3-newer", path: "./scripts/3-newer.sh", run: "once"
+  config.vm.provision "shell", name: "4-latest", path: "./scripts/4-latest.sh", run: "once"
   config.vm.provision "shell", name: "5-final-state", path: "./scripts/5-final-state.sh"
   #
   # run: once (default), always, never => never means run manually only (i.e. vagrant provision --provision-with 3-newer)
