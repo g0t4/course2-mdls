@@ -43,11 +43,12 @@ Vagrant.configure("2") do |config|
   # optional, install docker on vagrant up:
   # config.vm.provision "shell", name: "get-docker", path: "../shared/get-docker.sh"
 
-  config.vm.provision "shell", name: "1-install", path: "./scripts/1-install.sh"
-  config.vm.provision "shell", name: "2-containers", path: "./scripts/2-containers.sh"
-  config.vm.provision "shell", name: "3-newer", path: "./scripts/3-newer.sh", run: "once"
-  config.vm.provision "shell", name: "4-latest", path: "./scripts/4-latest.sh", run: "once"
-  config.vm.provision "shell", name: "5-final-state", path: "./scripts/5-final-state.sh"
+  config.vm.provision "shell", name: "install", path: "./scripts/1-install.sh"
+  config.vm.provision "shell", name: "live-reload", path: "./scripts/1b-live-reload.sh"
+  config.vm.provision "shell", name: "containers", path: "./scripts/2-containers.sh"
+  config.vm.provision "shell", name: "newer", path: "./scripts/3-newer.sh", run: "once"
+  config.vm.provision "shell", name: "latest", path: "./scripts/4-latest.sh", run: "once"
+  config.vm.provision "shell", name: "dump", path: "./scripts/5-dump.sh"
   #
   # run: once (default), always, never => never means run manually only (i.e. vagrant provision --provision-with 3-newer)
   # reset: true (reset communicator, i.e. ssh)
