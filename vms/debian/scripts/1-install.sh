@@ -3,7 +3,7 @@
 # *** convenience install ***
 curl -fsSL https://get.docker.com -o install-docker.sh
 # sudo sh install-docker.sh --dry-run # FYI
-sudo sh install-docker.sh --version 24.0.7
+sudo sh install-docker.sh --version "24.0.7"
 # FYI find versions with: `apt-cache madison docker-ce`, i.e. currently:
 # debian:
 #   23.0.0 => 23.0.6
