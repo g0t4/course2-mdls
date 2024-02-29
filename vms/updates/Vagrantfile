@@ -1,0 +1,96 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # https://developer.hashicorp.com/vagrant/docs
+
+  # recommended providers:
+  #   intel (amd64) CPU (mac/win/linux): virtualbox
+  #   arm (arm64) CPU (mac): parallels
+
+  config.vm.box = RbConfig::CONFIG["host_cpu"] == "arm64" ? "wesdemos/debian12-arm" : "generic/debian12"
+  #
+  # config.vm.box = "wesdemos/debian12-arm"
+  # config.vm.box_version = "1.1.3"
+  #   arm64: parallels
+  #   https://app.vagrantup.com/wesdemos/boxes/debian12-arm
+  #
+  # config.vm.box = "generic/debian12"
+  #   amd64: parallels/vmware/virtualbox/hyperv/libvirt/qemu
+  #   arm64: libvirt/qemu
+  #   https://app.vagrantup.com/generic/boxes/debian12
+  #
+  # config.vm.box = "bento/debian-12.4"
+  #   amd64: parallels/vmware/virtualbox
+  #   arm64: parallels/vmware
+  #   https://app.vagrantup.com/bento/boxes/debian-12.4
+  #
+  # config.vm.box = "debian/bookworm64"
+  #   amd64: virtualbox/libvirt
+  #   https://app.vagrantup.com/debian/boxes/bookworm64
+  #
+
+
+  config.vm.hostname = "debian"
+
+  # optional, tools and dotfiles:
+  config.vm.provision "shell", name: "tools", path: "../ubuntu/provision/tools.sh"
+
+  # optional, shell startup files:
+  config.vm.provision "file", source: "../shared/shell/config.fish", destination: "/home/vagrant/.config/fish/config.fish"
+  config.vm.provision "file", source: "../shared/shell/.bashrc.mods", destination: "/home/vagrant/.bashrc.mods"
+
+  # optional, install docker on vagrant up:
+  # config.vm.provision "shell", name: "get-docker", path: "../shared/get-docker.sh"
+
+  config.vm.provision "shell", name: "install", path: "./scripts/1-install.sh"
+  config.vm.provision "shell", name: "live-reload", path: "./scripts/1b-live-reload.sh", run: "never"
+  config.vm.provision "shell", name: "containers", path: "./scripts/2-containers.sh"
+  config.vm.provision "shell", name: "newer", path: "./scripts/3-newer.sh", run: "once"
+  config.vm.provision "shell", name: "latest", path: "./scripts/4-latest.sh", run: "once"
+  #
+  # toggle run: "once" to "never" to include/exclude w/o (un)commenting lines
+  #   run: once (default), always, never
+  #   never == manually only (i.e. vagrant provision --provision-with 3-newer)
+  # reset: true (reset communicator, i.e. ssh)
+
+  # host-only nic
+  config.vm.network "private_network", ip: "192.168.33.30"
+
+
+
+
+
+  # *** provider (hypervisor) specific settings ***
+  # vagrant up --provider=parallels
+  config.vm.provider "parallels" do |h|
+    # https://parallels.github.io/vagrant-parallels/docs/configuration.html
+    # h.gui = true
+    h.memory = "8192"
+    h.cpus = "6"
+  end
+
+  # vagrant up --provider=virtualbox
+  config.vm.provider "virtualbox" do |h|
+    # https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/configuration
+    # h.gui = true
+    h.memory = "4096"
+    h.cpus = "2"
+  end
+
+  # etc:
+  # vmware: https://developer.hashicorp.com/vagrant/docs/providers/vmware/configuration
+  # hyperv: https://developer.hashicorp.com/vagrant/docs/providers/hyperv/configuration
+
+
+  # *** box update check ***
+  # config.vm.box_check_update = false # disable
+  # instead:   vagrant box update --box org/box
+
+
+  # *** shared folders ***
+  # disable shared folder (if encounter problems, i.e. parallels tools not installed into guest):
+  # config.vm.synced_folder ".", "/vagrant", disabled: true
+
+
+end
