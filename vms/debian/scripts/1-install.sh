@@ -13,7 +13,8 @@ curl -fsSL https://get.docker.com -o install-docker.sh
 # ubuntu
 #   24.0.7 => 24.0.9
 #   25.0.0 => 25.0.3
-sudo sh install-docker.sh --version 24.0.7
+sudo sh install-docker.sh --version 23.0.6
+# sudo sh install-docker.sh --version 24.0.7
 # *** logs from `install-docker.sh --version 24.0.7` => what was run (with sudo):
 # sh -c apt-get update -qq >/dev/null
 # sh -c DEBIAN_FRONTEND=noninteractive apt-get install -y -qq apt-transport-https ca-certificates curl >/dev/null
