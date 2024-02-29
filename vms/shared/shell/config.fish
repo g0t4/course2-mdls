@@ -52,8 +52,11 @@ abbr sclss 'sudo systemctl list-sockets'
 abbr sclsd 'sudo systemctl list-dependencies'
 # *** journalctl ***
 abbr jc 'sudo journalctl -u'
+abbr jcd 'sudo journalctl -u docker'
+abbr jcc 'sudo journalctl -u containerd'
 abbr jcb 'sudo journalctl --boot -u'
-abbr jcf 'sudo journalctl --follow -u'
+abbr jcf 'sudo journalctl --follow -u docker'
+abbr jcnuke 'sudo journalctl --rotate --vacuum-time=1s'
 
 # *** docker abbrs ***
 abbr dc 'docker container'
