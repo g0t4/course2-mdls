@@ -35,5 +35,5 @@ sudo systemctl start docker.service containerd.service
 
 # *** completions ***
 #   (generated vs manual) => fish generated are currently superior
-# mkdir -p /home/vagrant/.config/fish/completions
-# docker completion fish >/home/vagrant/.config/fish/completions/docker.fish
+mkdir -p /home/vagrant/.config/fish/completions
+docker completion fish >/home/vagrant/.config/fish/completions/docker.fish
