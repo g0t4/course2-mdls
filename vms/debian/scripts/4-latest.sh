@@ -6,6 +6,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 docker version
+docker container ls
 
 # upgrade docs:
 # - https://docs.docker.com/engine/install/debian/#upgrade-docker-engine
