@@ -5,13 +5,13 @@ curl -fsSL https://get.docker.com -o install-docker.sh
 # sudo sh install-docker.sh --dry-run # FYI
 sudo sh install-docker.sh --version 24.0.7
 # FYI find versions with: `apt-cache madison docker-ce`, i.e. currently:
-# docker-ce | 5:25.0.3-1~ubuntu.23.10~mantic | https://download.docker.com/linux/ubuntu mantic/stable arm64 Packages
-# docker-ce | 5:25.0.2-1~ubuntu.23.10~mantic | https://download.docker.com/linux/ubuntu mantic/stable arm64 Packages
-# docker-ce | 5:25.0.1-1~ubuntu.23.10~mantic | https://download.docker.com/linux/ubuntu mantic/stable arm64 Packages
-# docker-ce | 5:25.0.0-1~ubuntu.23.10~mantic | https://download.docker.com/linux/ubuntu mantic/stable arm64 Packages
-# docker-ce | 5:24.0.9-1~ubuntu.23.10~mantic | https://download.docker.com/linux/ubuntu mantic/stable arm64 Packages
-# docker-ce | 5:24.0.8-1~ubuntu.23.10~mantic | https://download.docker.com/linux/ubuntu mantic/stable arm64 Packages
-# docker-ce | 5:24.0.7-1~ubuntu.23.10~mantic | https://download.docker.com/linux/ubuntu mantic/stable arm64 Packages
+# debian:
+#   23.0.0 => 23.0.6
+#   24.0.0 => 24.0.9
+#   25.0.0 => 25.0.3
+# ubuntu
+#   24.0.7 => 24.0.9
+#   25.0.0 => 25.0.3
 
 # *** post-install ***
 sudo usermod -aG docker vagrant
