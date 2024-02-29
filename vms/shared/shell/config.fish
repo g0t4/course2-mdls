@@ -80,6 +80,9 @@ abbr dct 'docker container top'
 #
 abbr din 'docker inspect'
 #
+abbr dver 'docker version'
+abbr dinfo 'docker info'
+#
 abbr dsy 'docker system'
 abbr dsydf 'docker system df'
 abbr dsydfv 'docker system df -v'
