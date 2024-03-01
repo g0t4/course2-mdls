@@ -8,23 +8,22 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "updates"
 
-  # optional, tools and dotfiles:
+  # (optional) tools
   config.vm.provision "shell", name: "tools", path: "../ubuntu/provision/tools.sh"
-
-  # optional, shell startup files:
   config.vm.provision "file", source: "../shared/shell/config.fish", destination: "/home/vagrant/.config/fish/config.fish"
   config.vm.provision "file", source: "../shared/shell/.bashrc.mods", destination: "/home/vagrant/.bashrc.mods"
 
+
+  # UPDATE SCRIPTS
   config.vm.provision "shell", name: "install", path: "./scripts/1-install.sh"
   config.vm.provision "shell", name: "live-reload", path: "./scripts/1b-live-reload.sh", run: "once"
   config.vm.provision "shell", name: "containers", path: "./scripts/2-containers.sh"
   config.vm.provision "shell", name: "newer", path: "./scripts/3-newer.sh", run: "once"
   config.vm.provision "shell", name: "latest", path: "./scripts/4-latest.sh", run: "once"
-  #
-  # toggle run: "once" to "never" to include/exclude w/o (un)commenting lines
-  #   run: once (default), always, never
+  # run: once (default), always, never
   #   never == manually only (i.e. vagrant provision --provision-with 3-newer)
   # reset: true (reset communicator, i.e. ssh)
+
 
   # host-only nic
   config.vm.network "private_network", ip: "192.168.33.40"
