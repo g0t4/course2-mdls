@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
   # UPDATE SCRIPTS
   config.vm.provision "shell", name: "install", path: "./scripts/1-install.sh"
-  config.vm.provision "shell", name: "live-reload", path: "./scripts/1b-live-reload.sh", run: "once"
+  config.vm.provision "shell", name: "live-restore", path: "./scripts/1b-live-restore.sh", run: "once"
   config.vm.provision "shell", name: "containers", path: "./scripts/2-containers.sh"
   config.vm.provision "shell", name: "newer", path: "./scripts/3-newer.sh", run: "once"
   config.vm.provision "shell", name: "latest", path: "./scripts/4-latest.sh", run: "once"

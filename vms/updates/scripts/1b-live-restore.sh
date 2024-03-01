@@ -10,7 +10,7 @@ sudo tee /etc/docker/daemon.json <<EOF
 }
 EOF
 dockerd --validate
-# FYI changing from "live-restore": true => remove line (empty daemon.json) => reload won't work to disable live restore... not an issue other way around from empty => true/false
+# FYI changing from "live-restore": true => remove line (empty daemon.json) => reload (systemctl) won't work to disable live restore... not an issue other way around from empty => true/false
 
 echo before reload:
 docker info | grep "Live Restore"
