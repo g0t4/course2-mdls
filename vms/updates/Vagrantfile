@@ -8,10 +8,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "updates"
 
+
+
   # (optional) tools
   config.vm.provision "shell", name: "tools", path: "../ubuntu/provision/tools.sh"
   config.vm.provision "file", source: "../shared/shell/config.fish", destination: "/home/vagrant/.config/fish/config.fish"
   config.vm.provision "file", source: "../shared/shell/.bashrc.mods", destination: "/home/vagrant/.bashrc.mods"
+
 
 
   # UPDATE SCRIPTS
@@ -23,6 +26,8 @@ Vagrant.configure("2") do |config|
   # run: once (default), always, never
   #   never == manually only (i.e. vagrant provision --provision-with 3-newer)
   # reset: true (reset communicator, i.e. ssh)
+
+
 
 
   # host-only nic
