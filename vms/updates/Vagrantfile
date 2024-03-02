@@ -23,9 +23,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", name: "containers", path: "./scripts/2-containers.sh"
   # config.vm.provision "shell", name: "newer", path: "./scripts/3-newer.sh"
   config.vm.provision "shell", name: "latest", path: "./scripts/4-latest.sh"
-  # run: once (default), always, never
-  #   never == manually only (i.e. vagrant provision --provision-with 3-newer)
-  # reset: true (reset communicator, i.e. ssh)
 
 
 
